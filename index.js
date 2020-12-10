@@ -10,11 +10,15 @@ const mobilityRoute = require("./routes/mobility");
 const port = process.env.PORT || 3000;
 
 //Connect to DB
-mongoose.connect(
-  process.env.DB_CONNECTION,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  () => console.log("Connected to DB")
-);
+try {
+  mongoose.connect(
+    process.env.DB_CONNECTION,
+    { useNewUrlParser: true, useUnifiedTopology: true },
+    () => console.log("Connected to DB")
+  );
+} catch (e) {
+  console.log(e);
+}
 
 //MiddleWare
 app.use(express.json());
