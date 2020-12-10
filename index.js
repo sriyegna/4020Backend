@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-var cors = require("cors");
+// var cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
 //Import Routes
@@ -18,7 +18,7 @@ mongoose.connect(
 
 //MiddleWare
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
 
 //Route Middlewares
 app.use("/api/mobility", mobilityRoute);
