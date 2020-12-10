@@ -43,7 +43,7 @@ router.get("/apple", async (req, res) => {
       regions[region].driving = getAvg(regions[region].driving) - 100;
     }
 
-    return res.status(200).send({ stock: regions });
+    return res.status(200).send(regions);
   } catch (err) {
     console.log(err);
     return res.status(500).send({ message: "Error getting data." });
