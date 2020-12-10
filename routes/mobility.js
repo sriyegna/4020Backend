@@ -38,9 +38,15 @@ router.get("/apple", async (req, res) => {
 
     for (let i = 0; i < regionOptions.length; i++) {
       const region = regionOptions[i];
-      regions[region].walking = getAvg(regions[region].walking) - 100;
-      regions[region].transit = getAvg(regions[region].transit) - 100;
-      regions[region].driving = getAvg(regions[region].driving) - 100;
+      regions[region].walking = (getAvg(regions[region].walking) - 100).toFixed(
+        3
+      );
+      regions[region].transit = (getAvg(regions[region].transit) - 100).toFixed(
+        3
+      );
+      regions[region].driving = (getAvg(regions[region].driving) - 100).toFixed(
+        3
+      );
     }
 
     return res.status(200).send(regions);
