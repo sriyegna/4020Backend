@@ -72,6 +72,18 @@ router.get("/apple", async (req, res) => {
         : null;
     }
 
+    max = {
+      driving: max.driving.toFixed(3),
+      transit: max.transit.toFixed(3),
+      walking: max.walking.toFixed(3),
+    };
+
+    min = {
+      driving: min.driving.toFixed(3),
+      transit: min.transit.toFixed(3),
+      walking: min.walking.toFixed(3),
+    };
+
     return res.status(200).send({ regions, max, min });
   } catch (err) {
     console.log(err);
