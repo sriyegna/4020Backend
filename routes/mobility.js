@@ -36,13 +36,13 @@ router.get("/apple", async (req, res) => {
       }
     }
 
-    const max = {
+    let max = {
       driving: Number.MIN_VALUE,
       transit: Number.MIN_VALUE,
       walking: Number.MIN_VALUE,
     };
 
-    const min = {
+    let min = {
       driving: Number.MAX_VALUE,
       transit: Number.MAX_VALUE,
       walking: Number.MAX_VALUE,
