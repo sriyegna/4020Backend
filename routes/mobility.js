@@ -51,22 +51,26 @@ router.get("/apple", async (req, res) => {
     for (let i = 0; i < regionOptions.length; i++) {
       const region = regionOptions[i];
       walking = getAvg(regions[region].walking) - 100;
-      max.walking = max.walking < walking ? walking : max.walking;
-      min.walking = min.walking < walking ? min.walking : walking;
+      if (walking) {
+        max.walking = max.walking < walking ? walking : max.walking;
+        min.walking = min.walking < walking ? min.walking : walking;
+      }
       regions[region].walking = walking
         ? (getAvg(regions[region].walking) - 100).toFixed(3)
         : null;
       transit = getAvg(regions[region].transit) - 100;
-      max.transit = max.transit < transit ? transit : max.transit;
       if (transit) {
+        max.transit = max.transit < transit ? transit : max.transit;
         min.transit = min.transit < transit ? min.transit : transit;
       }
       regions[region].transit = transit
         ? (getAvg(regions[region].transit) - 100).toFixed(3)
         : null;
       driving = getAvg(regions[region].driving) - 100;
-      max.driving = max.driving < driving ? driving : max.driving;
-      min.driving = min.driving < driving ? min.driving : driving;
+      if (driving) {
+        max.driving = max.driving < driving ? driving : max.driving;
+        min.driving = min.driving < driving ? min.driving : driving;
+      }
       regions[region].driving = driving
         ? (getAvg(regions[region].driving) - 100).toFixed(3)
         : null;
