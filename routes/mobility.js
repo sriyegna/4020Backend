@@ -58,7 +58,7 @@ router.get("/apple", async (req, res) => {
         : null;
       transit = getAvg(regions[region].transit) - 100;
       max.transit = max.transit < transit ? transit : max.transit;
-      if (transit !== null) {
+      if (transit) {
         min.transit = min.transit < transit ? min.transit : transit;
       }
       regions[region].transit = transit
